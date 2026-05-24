@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - BCA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Library Management</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="user.html">User Portal</a>
+                <a href="admin.html">Admin Portal</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Welcome to BCA Library</h2>
+                    <p>Your gateway to knowledge and learning resources</p>
+                    <div class="hero-buttons">
+                        <a href="user.html" class="btn btn-primary">
+                            <i class="fas fa-user"></i> User Portal
+                        </a>
+                        <a href="admin.html" class="btn btn-secondary">
+                            <i class="fas fa-user-shield"></i> Admin Portal
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <i class="fas fa-books"></i>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Browse Books</h3>
+                    <p>Explore our extensive collection of books across various subjects</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-paper-plane"></i>
+                    <h3>Request Books</h3>
+                    <p>Send book requests and get notified when available</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Track Status</h3>
+                    <p>Monitor your book requests and borrowing status</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Access</h3>
+                    <p>Protected admin panel with authentication</p>
+                </div>
+            </section>
+
+            <section class="stats">
+                <div class="stat">
+                    <i class="fas fa-book"></i>
+                    <span class="stat-number" id="totalBooks">0</span>
+                    <span class="stat-label">Total Books</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number" id="totalUsers">0</span>
+                    <span class="stat-label">Active Users</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-envelope"></i>
+                    <span class="stat-number" id="totalRequests">0</span>
+                    <span class="stat-label">Pending Requests</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 BCA Library Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

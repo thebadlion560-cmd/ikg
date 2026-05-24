@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Library Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Library Management</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="user.html">User Portal</a>
+                <a href="admin.html" class="active">Admin Portal</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Login Section -->
+            <section class="login-section" id="loginSection">
+                <div class="login-card">
+                    <div class="login-header">
+                        <i class="fas fa-user-shield"></i>
+                        <h2>Admin Login</h2>
+                    </div>
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="adminId">
+                                <i class="fas fa-id-card"></i> Admin ID
+                            </label>
+                            <input type="text" id="adminId" placeholder="Enter Admin ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adminPassword">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <input type="password" id="adminPassword" placeholder="Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <p class="login-hint">Default: bca_admin / library2024</p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Admin Dashboard -->
+            <section class="admin-dashboard" id="adminDashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h2>
+                    <button class="btn btn-danger" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="books">
+                        <i class="fas fa-book"></i> Manage Books
+                    </button>
+                    <button class="tab-btn" data-tab="requests">
+                        <i class="fas fa-envelope"></i> Book Requests
+                    </button>
+                    <button class="tab-btn" data-tab="services">
+                        <i class="fas fa-cog"></i> Services
+                    </button>
+                </div>
+
+                <!-- Books Tab -->
+                <div class="tab-content active" id="booksTab">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-book"></i> Book Management</h3>
+                        <button class="btn btn-primary" id="addBookBtn">
+                            <i class="fas fa-plus"></i> Add New Book
+                        </button>
+                    </div>
+
+                    <div class="book-form" id="bookForm" style="display: none;">
+                        <form id="addBookForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Book Title</label>
+                                    <input type="text" id="bookTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Author</label>
+                                    <input type="text" id="bookAuthor" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>ISBN</label>
+                                    <input type="text" id="bookISBN" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select id="bookCategory" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Programming">Programming</option>
+                                        <option value="Database">Database</option>
+                                        <option value="Networking">Networking</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Total Copies</label>
+                                    <input type="number" id="bookCopies" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Book Image URL</label>
+                                    <input type="url" id="bookImage" placeholder="https://example.com/image.jpg">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="bookDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Save Book
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancelBookBtn">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="books-grid" id="booksGrid">
+                        <!-- Books will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Requests Tab -->
+                <div class="tab-content" id="requestsTab">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-envelope"></i> Book Requests</h3>
+                    </div>
+                    <div class="requests-list" id="requestsList">
+                        <!-- Requests will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Services Tab -->
+                <div class="tab-content" id="servicesTab">
+                    <div class="tab-header">
+                        <h3><i class="fas fa-cog"></i> Library Services</h3>
+                        <button class="btn btn-primary" id="addServiceBtn">
+                            <i class="fas fa-plus"></i> Add Service
+                        </button>
+                    </div>
+
+                    <div class="service-form" id="serviceForm" style="display: none;">
+                        <form id="addServiceForm">
+                            <div class="form-group">
+                                <label>Service Name</label>
+                                <input type="text" id="serviceName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="serviceDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Icon Class (Font Awesome)</label>
+                                <input type="text" id="serviceIcon" placeholder="fas fa-book" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Save Service
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancelServiceBtn">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="services-grid" id="servicesGrid">
+                        <!-- Services will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 BCA Library Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
